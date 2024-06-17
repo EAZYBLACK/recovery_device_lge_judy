@@ -86,15 +86,12 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
-BOARD_ROOT_EXTRA_FOLDERS := ADF \
-                            APD \
-                            asdf \
-                            bt_firmware \
-                            dsp \
-                            factory \
+BOARD_ROOT_EXTRA_FOLDERS := dsp \
                             firmware \
                             persist \
-                            xrom
+                            persist-lg \
+                            OP \
+                            laf \
 
 # Workaround for error copying vendor files to recovery ramdisk
 TARGET_COPY_OUT_VENDOR := vendor
@@ -104,7 +101,6 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hardware.vibrator-ndk_platform \
     bootctrl.$(TARGET_BOARD_PLATFORM) \
     libion \
     libxml2 \
@@ -151,6 +147,7 @@ TW_EXCLUDE_TWRPAPP := true
 TW_NO_USB_STORAGE := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_HAS_EDL_MODE := true
+TW_HAPTICS_TSPDRV := true
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
