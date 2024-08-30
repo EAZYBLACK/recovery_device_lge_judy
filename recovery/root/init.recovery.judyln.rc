@@ -32,9 +32,18 @@ on fs
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
 on boot
-    start health-hal-2-1
+    chown system system /sys/class/lge_mme/mme_ctrl/mme_command
+    chmod 664 /sys/class/lge_mme/mme_ctrl/mme_command
+    chown system system /sys/class/lge_mme/mme_ctrl/hw_test_value
+    chmod 664 /sys/class/lge_mme/mme_ctrl/hw_test_value
+
+    # Workaround for adb not coming up
+    setprop sys.usb.config adb
 
 on post-fs
+    chown system system /persist-lg
+    chmod 0771 /persist-lg
+
     start boot-hal-1-0
 
     wait /dev/block/bootdevice/by-name/ADF
