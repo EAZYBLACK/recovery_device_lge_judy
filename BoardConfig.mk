@@ -103,7 +103,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Recovery
 BOOTLOADER_MESSAGE_OFFSET := 128
 TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Build flags
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
